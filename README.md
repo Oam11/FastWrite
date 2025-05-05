@@ -3,7 +3,7 @@ Python Module for AI-Assisted Documentation
 
 ## Current Statistics:
 - [![PyPI Downloads](https://static.pepy.tech/badge/fastwrite)](https://pepy.tech/projects/fastwrite)
-- Latest Version: [V 1.1.10](https://pypi.org/project/FastWrite)
+- Latest Version: [V 1.2.0](https://pypi.org/project/FastWrite)
 
 ## Overview
 This module provides functionality to:
@@ -198,6 +198,18 @@ from FastWrite import calculate_bleu_from_files
 bleu_score_from_files = calculate_bleu_from_files("candidate_doc.txt", "reference_doc.txt", smoothing_method='method1')
 print("BLEU Score from Files:", bleu_score_from_files)
 
+```
+
+
+### Calculating Rouge Score:
+```
+from FastWrite.rouge import calculate_rouge
+
+# Provide a reference documentation string for comparison
+reference_doc = "Your reference documentation text here..."
+
+# Calculate Rouge
+rouge = calculate_rouge(doc_llm_host,reference_doc)
 ```
 
 ### Generating README File:

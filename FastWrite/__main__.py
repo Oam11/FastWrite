@@ -1,5 +1,6 @@
 import argparse
 import os
+import zipfile
 from FastWrite import file_processor, doc_generator
 from FastWrite.print import readmegen, remove_think_tags
 
@@ -21,10 +22,19 @@ def main():
     parser.add_argument("--Custom-Prompt", type=str, default=None, help="Custom user-defined prompt (must be enclosed in quotes).")
 
     args = parser.parse_args()
-
+    
     if not os.path.isfile(args.filename):
-        print(f"Error: File '{args.filename}' does not exist.")
-        return
+        if zipfile.is_zipfile(args.filename):
+            code = ""
+            with zipfile.ZipFile(ff, 'r') as myzip:
+                myzip.extractall("extractedfiles")
+            for filename in os.listdir('extractedfiles'):
+                with open(filename, 'r') as f:
+                    fcode = f.read()
+                    code = code + fcode
+        else:
+            print(f"Error: File '{args.filename}' does not exist.")
+            return
 
     selected_llms = [args.GROQ, args.GEMINI, args.OPENAI, args.OPENROUTER]
     if sum(selected_llms) != 1:
