@@ -3,7 +3,7 @@ Python Module for AI-Assisted Documentation
 
 ## Current Statistics:
 - [![PyPI Downloads](https://static.pepy.tech/badge/fastwrite)](https://pepy.tech/projects/fastwrite)
-- Latest Version: [V 1.2.0](https://pypi.org/project/FastWrite)
+- [![PyPI](https://badge.fury.io/py/fastwrite.svg)](https://badge.fury.io/py/fastwrite)
 
 ## Overview
 This module provides functionality to:
@@ -27,10 +27,12 @@ This module provides functionality to:
 - [openai](https://pypi.org/project/openai/)
 - [requests](https://pypi.org/project/requests/)
 - [nltk](https://pypi.org/project/nltk/)
+- [python-dotenv](https://pypi.org/project/python-dotenv/)
+- [rouge_metric](https://pypi.org/project/rouge-metric/)
 
 ### Install Dependencies
 ```bash
-pip install groq google-generativeai requests nltk python-dotenv openai
+pip install groq google-generativeai requests nltk python-dotenv openai rouge_metric
 ```
 
 ## Usage
