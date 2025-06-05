@@ -1,7 +1,7 @@
 import requests
 import json
 from groq import Groq
-import google.generativeai as genai
+from google import genai  # Updated import for new google-genai
 from openai import OpenAI
 from .config import get_groq_api_key, get_gemini_api_key, get_openai_api_key, get_openrouter_api_key
 
@@ -28,7 +28,7 @@ def generate_documentation_groq(code: str, custom_prompt: str, groq_api_key: str
 
 def generate_documentation_gemini(code: str, custom_prompt: str, gemini_api_key: str = None, model: str = "gemini-2.0-flash") -> str:
     """
-    Generates documentation using a Gemini-based AI model.
+    Generates documentation using a Gemini-based AI model (google-genai).
     If no API key is provided, it will prompt for one and save it to .env.
 
     :param code: The Python source code.
@@ -39,9 +39,11 @@ def generate_documentation_gemini(code: str, custom_prompt: str, gemini_api_key:
     """
     if gemini_api_key is None:
         gemini_api_key = get_gemini_api_key()
-    genai.configure(api_key=gemini_api_key)
-    gen_model = genai.GenerativeModel(model)
-    response = gen_model.generate_content(f"{custom_prompt}\n\n{code}")
+    client = genai.Client(api_key=gemini_api_key)
+    response = client.models.generate_content(
+        model=model,
+        contents=f"{custom_prompt}\n\n{code}",
+    )
     return response.text
 
 def generate_documentation_openai(code: str, custom_prompt: str, openai_api_key: str = None, model: str = "gpt-3.5-turbo-instruct", max_tokens: int = 1024, temperature: float = 0.7) -> str:

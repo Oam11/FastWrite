@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "FastWrite"
-version = "1.2.0"
+version = "1.2.1"
 description = "A module for generating AI-based code documentation and data flow diagrams."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -14,7 +14,7 @@ authors = [
 ]
 dependencies = [
     "groq",
-    "google-generativeai",
+    "google-genai",
     "requests",
     "nltk",
     "python-dotenv",
@@ -23,7 +23,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://fastwrite-py.netlify.app/"
+Homepage = "https://fastwrite-py.vercel.app/"
 Repository = "https://github.com/R-G-KJSIT/FastWrite"
 
 

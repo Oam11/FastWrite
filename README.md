@@ -4,6 +4,7 @@ Python Module for AI-Assisted Documentation
 ## Current Statistics:
 - [![PyPI Downloads](https://static.pepy.tech/badge/fastwrite)](https://pepy.tech/projects/fastwrite)
 - [![PyPI](https://badge.fury.io/py/fastwrite.svg)](https://badge.fury.io/py/fastwrite)
+- [Official Website](https://fastwrite-py.vercel.app)
 
 ## Overview
 This module provides functionality to:
@@ -15,7 +16,7 @@ This module provides functionality to:
   - OpenAI-based models (remote)
   - OpenRouter-based models (remote)
   - Ollama-based models (local)
-- **Evaluate Documentation Quality**: Compute BLEU scores to compare generated documentation against a reference document.
+- **Evaluate Documentation Quality**: Compute BLEU/ROUGE scores to compare generated documentation against a reference document.
 
 
 ## Installation
@@ -23,7 +24,7 @@ This module provides functionality to:
 ### Requirements
 - Python 3.11
 - [groq](https://pypi.org/project/groq/)
-- [google-generativeai](https://pypi.org/project/google-generativeai/)
+- [google-genai](https://pypi.org/project/google-genai/)
 - [openai](https://pypi.org/project/openai/)
 - [requests](https://pypi.org/project/requests/)
 - [nltk](https://pypi.org/project/nltk/)
@@ -32,7 +33,7 @@ This module provides functionality to:
 
 ### Install Dependencies
 ```bash
-pip install groq google-generativeai requests nltk python-dotenv openai rouge_metric
+pip install groq google-genai requests nltk python-dotenv openai rouge_metric
 ```
 
 ## Usage
@@ -74,6 +75,9 @@ print(graphviz_code)
 ### Generating Documentation (Express Mode):
 ```
 # Normal Mode:
+py -m FastWrite --LLM_NAME
+
+# With custom code file
 py -m FastWrite code_filename.py --LLM_NAME
 
 # Simplified (Novice Friendly) Mode:
